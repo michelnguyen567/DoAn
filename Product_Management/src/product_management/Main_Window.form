@@ -26,34 +26,29 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
+          <Group type="102" attributes="0">
+              <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+              <Component id="Btn_Insert" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="Btn_Update" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="Btn_Delete" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="Btn_Save" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Component id="jLabel1" alignment="1" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel2" alignment="1" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel5" alignment="1" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel3" alignment="1" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="Btn_Insert" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="Btn_Update" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="Btn_Delete" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Component id="Btn_First" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="Btn_Next" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="Btn_Previous" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="Btn_Last" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel1" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel2" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel3" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel5" alignment="1" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="Btn_Choose_Image" max="32767" attributes="0"/>
                           <Component id="txt_id" max="32767" attributes="0"/>
@@ -62,70 +57,84 @@
                           <Component id="txt_AddDate" max="32767" attributes="0"/>
                           <Component id="lbl_image" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="16" max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
-                          <Component id="jScrollPane1" min="-2" pref="619" max="-2" attributes="0"/>
-                      </Group>
+                      <EmptySpace type="unrelated" pref="21" max="32767" attributes="0"/>
+                      <Component id="jScrollPane1" min="-2" pref="619" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="414" max="-2" attributes="0"/>
+                      <Component id="BtnRefresh" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="Btn_First" min="-2" pref="42" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="Btn_Last" min="-2" pref="42" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace min="-2" max="-2" attributes="0"/>
           </Group>
+          <Component id="jPanel1" alignment="1" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
-              <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
+              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="txt_id" alignment="3" min="-2" pref="45" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="txt_name" alignment="3" min="-2" pref="45" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="txt_price" alignment="3" min="-2" pref="45" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                           <Component id="txt_AddDate" min="-2" pref="41" max="-2" attributes="0"/>
                       </Group>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
                               <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Group type="102" attributes="0">
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="lbl_image" min="-2" pref="143" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
+                              <Component id="lbl_image" min="-2" pref="202" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                       <Component id="Btn_Choose_Image" min="-2" pref="42" max="-2" attributes="0"/>
                   </Group>
-                  <Component id="jScrollPane1" alignment="1" min="-2" pref="488" max="-2" attributes="0"/>
+                  <Component id="jScrollPane1" min="-2" pref="469" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="Btn_Insert" alignment="3" min="-2" pref="49" max="-2" attributes="0"/>
-                  <Component id="Btn_Update" alignment="3" min="-2" pref="49" max="-2" attributes="0"/>
-                  <Component id="Btn_Delete" alignment="3" min="-2" pref="49" max="-2" attributes="0"/>
-                  <Component id="Btn_First" alignment="3" min="-2" pref="49" max="-2" attributes="0"/>
-                  <Component id="Btn_Next" alignment="3" min="-2" pref="49" max="-2" attributes="0"/>
-                  <Component id="Btn_Previous" alignment="3" min="-2" pref="49" max="-2" attributes="0"/>
-                  <Component id="Btn_Last" alignment="3" min="-2" pref="49" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="Btn_Last" min="-2" max="-2" attributes="0"/>
+                          <Component id="Btn_First" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="Btn_Insert" alignment="3" min="-2" pref="49" max="-2" attributes="0"/>
+                          <Component id="Btn_Update" alignment="3" min="-2" pref="49" max="-2" attributes="0"/>
+                          <Component id="Btn_Delete" alignment="3" min="-2" pref="49" max="-2" attributes="0"/>
+                          <Component id="Btn_Save" alignment="3" min="-2" pref="49" max="-2" attributes="0"/>
+                          <Component id="BtnRefresh" alignment="3" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace pref="19" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -160,7 +169,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Times New Roman" size="24" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Ng&#xe0;y th&#xea;m:"/>
+        <Property name="text" type="java.lang.String" value="Ng&#xe0;y:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel5">
@@ -219,8 +228,8 @@
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
               <Table columnCount="4" rowCount="0">
                 <Column editable="true" title="ID" type="java.lang.Object"/>
-                <Column editable="true" title="T&#xea;n" type="java.lang.String"/>
-                <Column editable="true" title="Gi&#xe1;" type="java.lang.Object"/>
+                <Column editable="true" title="T&#xea;n" type="java.lang.Object"/>
+                <Column editable="true" title="Gi&#xe1; (tri&#x1ec7;u VN&#x110;)" type="java.lang.Object"/>
                 <Column editable="true" title="Ng&#xe0;y th&#xea;m" type="java.lang.Object"/>
               </Table>
             </Property>
@@ -291,7 +300,7 @@
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/icon/refresh.png"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="C&#x1ead;p nh&#xe2;t"/>
+        <Property name="text" type="java.lang.String" value="C&#x1ead;p nh&#x1ead;t"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Btn_UpdateActionPerformed"/>
@@ -319,38 +328,9 @@
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/icon/left-arrow-outline-to-first-track.png"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="&#x110;&#x1ea7;u"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Btn_FirstActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="Btn_Next">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Times New Roman" size="24" style="1"/>
-        </Property>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/icon/next.png"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="Ti&#x1ebf;p"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Btn_NextActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="Btn_Previous">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Times New Roman" size="24" style="1"/>
-        </Property>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/icon/left-arrow.png"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="L&#xf9;i"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Btn_PreviousActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="Btn_Last">
@@ -361,19 +341,90 @@
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/icon/last-track-outlined-button.png"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Cu&#x1ed1;i"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Btn_LastActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel6">
+    <Component class="javax.swing.JButton" name="BtnRefresh">
+      <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/icon/refresh (1).png"/>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnRefreshActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="Btn_Save">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Times New Roman" size="36" style="3"/>
+          <Font name="Times New Roman" size="24" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Danh s&#xe1;ch s&#x1ea3;n ph&#x1ea9;m"/>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/icon/save-file-option.png"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="L&#x1b0;u"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Btn_SaveActionPerformed"/>
+      </Events>
     </Component>
+    <Container class="javax.swing.JPanel" name="jPanel1">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="99" green="99" red="99" type="rgb"/>
+        </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="66" green="66" red="66" type="rgb"/>
+        </Property>
+      </Properties>
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace max="32767" attributes="0"/>
+                  <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="292" max="-2" attributes="0"/>
+                  <Component id="BtnMenu" min="-2" max="-2" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" attributes="0">
+                  <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
+                  <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
+              </Group>
+              <Group type="102" alignment="0" attributes="0">
+                  <Component id="BtnMenu" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JLabel" name="jLabel6">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Times New Roman" size="36" style="3"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Danh s&#xe1;ch th&#xfa; c&#x1b0;ng"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="BtnMenu">
+          <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/icon/menu.png"/>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnMenuActionPerformed"/>
+          </Events>
+        </Component>
+      </SubComponents>
+    </Container>
   </SubComponents>
 </Form>
