@@ -147,7 +147,7 @@ public class Register_Form extends javax.swing.JFrame {
         jLabel4.setText("Mật khẩu:");
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel5.setText("Xác nhận mật khẩu:");
+        jLabel5.setText("Ghi lại mật khẩu:");
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel6.setText("Số điện thoại:");
@@ -164,16 +164,16 @@ public class Register_Form extends javax.swing.JFrame {
 
         jRadioButton_Male.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jRadioButton_Male.setSelected(true);
-        jRadioButton_Male.setText("Nam");
+        jRadioButton_Male.setText("Male");
 
         jRadioButton_Female.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jRadioButton_Female.setText("Nữ");
+        jRadioButton_Female.setText("Female");
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel8.setText("Hình ảnh:");
 
         jButton_SelectImage.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jButton_SelectImage.setText("Chọn ảnh");
+        jButton_SelectImage.setText("Chọn hình");
         jButton_SelectImage.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton_SelectImageActionPerformed(evt);
@@ -181,7 +181,7 @@ public class Register_Form extends javax.swing.JFrame {
         });
 
         jLabel_imgpath.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
-        jLabel_imgpath.setText("Đường dẫn ảnh");
+        jLabel_imgpath.setText("đường dẫn hình");
 
         jPasswordField_1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
@@ -189,7 +189,7 @@ public class Register_Form extends javax.swing.JFrame {
 
         jLabel_login.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel_login.setForeground(new java.awt.Color(0, 204, 0));
-        jLabel_login.setText(">> Đã có tài khoản? Đăng nhập!");
+        jLabel_login.setText(">> Đã có tài khoản. Đăng nhập!");
         jLabel_login.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel_login.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -210,14 +210,30 @@ public class Register_Form extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(55, 55, 55)
+                        .addGap(26, 26, 26)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel2))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField_Username)
-                            .addComponent(jPasswordField_1, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel4)
+                                    .addComponent(jLabel2))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jTextField_Username)
+                                    .addComponent(jPasswordField_1, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel1)
+                                    .addComponent(jLabel5)
+                                    .addComponent(jLabel6))
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                        .addGap(1, 1, 1)
+                                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jPasswordField_2, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jTextField_Phone, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jTextField_Fullname, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(38, 38, 38)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -230,35 +246,15 @@ public class Register_Form extends javax.swing.JFrame {
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(jLabel_imgpath, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(jPanel3Layout.createSequentialGroup()
-                                    .addGap(27, 27, 27)
                                     .addComponent(jLabel7)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                     .addComponent(jRadioButton_Male)
                                     .addGap(10, 10, 10)
                                     .addComponent(jRadioButton_Female)))))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(145, 145, 145)
-                        .addComponent(jLabel_login))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGap(24, 24, 24)
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(jPanel3Layout.createSequentialGroup()
-                                        .addComponent(jLabel6)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
-                                    .addGroup(jPanel3Layout.createSequentialGroup()
-                                        .addComponent(jLabel5)
-                                        .addGap(5, 5, 5))))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
-                                .addGap(85, 85, 85)
-                                .addComponent(jLabel1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPasswordField_2, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField_Phone, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField_Fullname, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(23, Short.MAX_VALUE))
+                        .addGap(152, 152, 152)
+                        .addComponent(jLabel_login)))
+                .addContainerGap(32, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -361,20 +357,22 @@ public class Register_Form extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel_title, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(100, 100, 100)
+                .addGap(98, 98, 98)
                 .addComponent(jLabel_minimize, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel_close, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(1, 1, 1))
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel_title, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel_close)
-                        .addComponent(jLabel_minimize)))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel_minimize)
+                            .addComponent(jLabel_close))))
                 .addGap(35, 35, 35)
                 .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -456,7 +454,7 @@ public class Register_Form extends javax.swing.JFrame {
                      
                      try {
                          
-                         // lưu image theo kiểu blob vào db
+                         // save the image as blob in the database
                          if(image_path != null){
                          
                              InputStream image = new FileInputStream(new File(image_path));
@@ -467,9 +465,9 @@ public class Register_Form extends javax.swing.JFrame {
                          }
                          
                          if(ps.executeUpdate() != 0){
-                             JOptionPane.showMessageDialog(null, "Tài khoản đã được tạo !!");
+                             JOptionPane.showMessageDialog(null, "Tài khoản đã được tạo");
                          }else{
-                             JOptionPane.showMessageDialog(null, "Lỗi: Xem lại thông tin của bạn");
+                             JOptionPane.showMessageDialog(null, "Lỗi: Kiểm tra lại thông tin");
                          }
                          
                      } catch (FileNotFoundException ex) {
@@ -536,20 +534,20 @@ public class Register_Form extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField_PhoneKeyTyped
 
     private void jButton_SelectImageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_SelectImageActionPerformed
-        
+        // select an image and set the image path into a jlabel
         String path = null;
         
         JFileChooser chooser = new JFileChooser();
         
         chooser.setCurrentDirectory(new File(System.getProperty("user.home")));
         
-        // loại file sẽ nhận
+        // file extension
         FileNameExtensionFilter extension = new FileNameExtensionFilter("*.Images","jpg","png","jpeg");
         chooser.addChoosableFileFilter(extension);
         
         int filestate = chooser.showSaveDialog(null);
          
-        // kiểm tra xem đã chọn hình ảnh chưa
+        // check if the user select an image
         if(filestate == JFileChooser.APPROVE_OPTION){
             
             File selectedImage = chooser.getSelectedFile();
@@ -594,29 +592,29 @@ public class Register_Form extends javax.swing.JFrame {
         String pass1 = String.valueOf(jPasswordField_1.getPassword());
         String pass2 = String.valueOf(jPasswordField_2.getPassword());
         
-        // kiểm tra có bị rỗng không
+        // check empty fields
         if(fname.trim().equals("") || uname.trim().equals("") || phone.trim().equals("")
            || pass1.trim().equals("") || pass2.trim().equals(""))
         {
-            JOptionPane.showMessageDialog(null, "One Or More Fields Are Empty","Empty Fields",2);
+            JOptionPane.showMessageDialog(null, "Chưa ghi đủ thông tin","Thông tin trống",2);
             return false;
         }
         
-        // kiểm tra xem 2 mật khẩu có giống nhau không
+        // check if the two password are equals
         else if(!pass1.equals(pass2))
         {
-           JOptionPane.showMessageDialog(null, "Password Doesn't Match","Confirm Password",2); 
+           JOptionPane.showMessageDialog(null, "Mật khẩu không trùng","Xác nhận mật khẩu",2); 
            return false;
         }
         
-        //nếu đã kiểm tra hết
+        // if everything is ok
         else{
             return true;
         }
     }
     
     
-    // kiểm tra xem user có tồn tại trong db không
+    // create a unction to check if the entred username already exists in the database
     public boolean checkUsername(String username){
         
         PreparedStatement st;
@@ -634,7 +632,7 @@ public class Register_Form extends javax.swing.JFrame {
             if(rs.next())
             {
                 username_exist = true;
-                JOptionPane.showMessageDialog(null, "This Username is Already Taken, Choose Another One", "Username Failed", 2);
+                JOptionPane.showMessageDialog(null, "Tên đăng nhập đã được sử dụng", "Lỗi tên đăng nhập", 2);
             }
             
         } catch (SQLException ex) {
@@ -670,6 +668,7 @@ public class Register_Form extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(Register_Form.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
