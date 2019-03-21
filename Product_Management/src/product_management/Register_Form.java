@@ -456,7 +456,7 @@ public class Register_Form extends javax.swing.JFrame {
                      
                      try {
                          
-                         // save the image as blob in the database
+                         // lưu image theo kiểu blob vào db
                          if(image_path != null){
                          
                              InputStream image = new FileInputStream(new File(image_path));
@@ -536,20 +536,20 @@ public class Register_Form extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField_PhoneKeyTyped
 
     private void jButton_SelectImageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_SelectImageActionPerformed
-        // select an image and set the image path into a jlabel
+        
         String path = null;
         
         JFileChooser chooser = new JFileChooser();
         
         chooser.setCurrentDirectory(new File(System.getProperty("user.home")));
         
-        // file extension
+        // loại file sẽ nhận
         FileNameExtensionFilter extension = new FileNameExtensionFilter("*.Images","jpg","png","jpeg");
         chooser.addChoosableFileFilter(extension);
         
         int filestate = chooser.showSaveDialog(null);
          
-        // check if the user select an image
+        // kiểm tra xem đã chọn hình ảnh chưa
         if(filestate == JFileChooser.APPROVE_OPTION){
             
             File selectedImage = chooser.getSelectedFile();
@@ -594,7 +594,7 @@ public class Register_Form extends javax.swing.JFrame {
         String pass1 = String.valueOf(jPasswordField_1.getPassword());
         String pass2 = String.valueOf(jPasswordField_2.getPassword());
         
-        // check empty fields
+        // kiểm tra có bị rỗng không
         if(fname.trim().equals("") || uname.trim().equals("") || phone.trim().equals("")
            || pass1.trim().equals("") || pass2.trim().equals(""))
         {
@@ -602,21 +602,21 @@ public class Register_Form extends javax.swing.JFrame {
             return false;
         }
         
-        // check if the two password are equals
+        // kiểm tra xem 2 mật khẩu có giống nhau không
         else if(!pass1.equals(pass2))
         {
            JOptionPane.showMessageDialog(null, "Password Doesn't Match","Confirm Password",2); 
            return false;
         }
         
-        // if everything is ok
+        //nếu đã kiểm tra hết
         else{
             return true;
         }
     }
     
     
-    // create a unction to check if the entred username already exists in the database
+    // kiểm tra xem user có tồn tại trong db không
     public boolean checkUsername(String username){
         
         PreparedStatement st;

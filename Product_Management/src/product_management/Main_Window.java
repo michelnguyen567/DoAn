@@ -188,7 +188,7 @@ public class Main_Window extends javax.swing.JFrame {
         
     }
     
-    // Show Data In Inputs
+    // hiện dữ liệu trên input
     public void ShowItem(int index)
     {
             txt_id.setText(Integer.toString(getProductList().get(index).getId()));
@@ -483,7 +483,7 @@ public class Main_Window extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    // Button Browse Image From Your Computer
+    // nút để chọn hình ảnh
     private void Btn_Choose_ImageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_Choose_ImageActionPerformed
         // TODO add your handling code here:
          JFileChooser file = new JFileChooser();
@@ -505,9 +505,10 @@ public class Main_Window extends javax.swing.JFrame {
     }//GEN-LAST:event_Btn_Choose_ImageActionPerformed
 
     
-    // Button Insert Data Into MySQL Database
-    // 1 - Check If The imgPath Is Not Null And The Inputs Are Not Empty
-    // 2 - Insert The Data
+   
+    // nút truyền dữ liệu vào db
+    // kiểm tra ảnh vs các text nhập vào có null không
+    // truyền dữ liệu
     private void Btn_InsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_InsertActionPerformed
         // TODO add your handling code here:
        //Xóa TextField
@@ -516,11 +517,10 @@ public class Main_Window extends javax.swing.JFrame {
        setButton(false);
     }//GEN-LAST:event_Btn_InsertActionPerformed
 
-     // Button Update Data From MySQL Database
-    // 1 - Check If Inputs Is Not Null
-    //     If The imgPath Is Not Null Update Also The Image
-    //     else don't update the Image
-    // 2 - Update The Data
+    
+    //nút update data
+    //kiểm tra  xem text có null không
+    //nếu không có image thì không update image 
     private void Btn_UpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_UpdateActionPerformed
         // TODO add your handling code here:
         if(checkInputs() && txt_id.getText() != null)
@@ -529,7 +529,7 @@ public class Main_Window extends javax.swing.JFrame {
             PreparedStatement ps = null;
             Connection con = getConnection();
            
-            // update without image
+            //update mà không cần image
             if(ImgPath == null)
             {
                 try {
@@ -556,7 +556,7 @@ public class Main_Window extends javax.swing.JFrame {
                 }
                
             }
-            // update With Image
+            // update có image
             else{
                 try{
                 InputStream img = new FileInputStream(new File(ImgPath));

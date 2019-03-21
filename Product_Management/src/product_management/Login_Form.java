@@ -454,14 +454,14 @@ public class Login_Form extends javax.swing.JFrame {
         PreparedStatement st;
         ResultSet rs;
         
-        // get the username & password
+        //lấy username và password được nhập
         String username = jTextField_Username.getText();
         String password = String.valueOf(jPasswordField.getPassword());
         
-        //create a select query to check if the username and the password exist in the database
+        //tạo câu lệnh database để kiểm tra xem tài khoản này có trong db k??
         String query = "SELECT * FROM `users` WHERE `username` = ? AND `password` = ?";
         
-        // show a message if the username or the password fields are empty
+        //neu username hoặc password bị bỏ trống thì hiện thông báo
         if(username.trim().equals("username"))
         {
             JOptionPane.showMessageDialog(null, "Nhập tên đăng nhập", "Tên đăng nhập trống", 2);
@@ -473,20 +473,23 @@ public class Login_Form extends javax.swing.JFrame {
         else{
             
             try {
+                //chuẩn bị câu lệnh sql
             st = My_CNX.getConnection().prepareStatement(query);
-            
+                //truyền username và password được nhập vào câu lệnh sql
             st.setString(1, username);
             st.setString(2, password);
+                //chạy lệnh sql
             rs = st.executeQuery();
             
+            //nếu tìm thấy dữ liệu
             if(rs.next())
             {
-                // show a new form
+                //mở form menu
                 Menu_Form form = new Menu_Form();
                 form.setVisible(true);
                 form.pack();
                 form.setLocationRelativeTo(null);
-                // close the current form(login form)
+                // đóng login form
                 this.dispose();
                 
             }else{
