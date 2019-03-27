@@ -16,7 +16,7 @@ public class My_CNX {
     private static String username = "root";
     private static String dbname  = "java_db";
     private static Integer portnumber  = 3306;
-    private static String password = "mypassword";
+    private static String password = "";
     
     public static Connection getConnection()
     {

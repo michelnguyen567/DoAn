@@ -57,7 +57,7 @@ public class Main_Window extends javax.swing.JFrame {
         Connection con = null;
         
         try {
-            con = DriverManager.getConnection("jdbc:mysql://localhost/java_db","root","mypassword");
+            con = DriverManager.getConnection("jdbc:mysql://localhost/java_db","root","");
             return con;
         } catch (SQLException ex) {
             Logger.getLogger(Main_Window.class.getName()).log(Level.SEVERE, null, ex);
@@ -511,12 +511,33 @@ public class Main_Window extends javax.swing.JFrame {
     // truyền dữ liệu
     private void Btn_InsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_InsertActionPerformed
         // TODO add your handling code here:
-       //Xóa TextField
-       setNull();
-       //Khóa các button không liên quan
-       setButton(false);
+       
+      if(checkInputs() && ImgPath != null)
+        {
+            try {
+                 Connection con = getConnection();
+                PreparedStatement ps = con.prepareStatement("INSERT INTO products(name,price,add_date,image)"
+                        + "values(?,?,?,?) ");
+                ps.setString(1, txt_name.getText());
+                ps.setString(2, txt_price.getText());
+               
+                SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+                String addDate = dateFormat.format(txt_AddDate.getDate());
+                ps.setString(3, addDate);
+               
+                InputStream img = new FileInputStream(new File(ImgPath));
+                ps.setBlob(4, img);
+                ps.executeUpdate();
+                Show_Products_In_JTable();
+               
+                JOptionPane.showMessageDialog(null, "Data Inserted");
+            } catch (Exception ex) {
+                 JOptionPane.showMessageDialog(null, ex.getMessage());
+            }
+        }else{
+            JOptionPane.showMessageDialog(null, "One Or More Field Are Empty");
     }//GEN-LAST:event_Btn_InsertActionPerformed
-
+    }
     
     //nút update data
     //kiểm tra  xem text có null không
