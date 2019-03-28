@@ -34,20 +34,23 @@ public class Login_Form extends javax.swing.JFrame {
         /* Go to -> http://localhost/phpmyadmin and create a new database */
         /* Create a Connection with the database */
         
-        // center the form
+        // Hiển thị form ra giữa màn hình
         this.setLocationRelativeTo(null);
         
-        // create a yellow border for the jpanel_title
-        // 0 border in the top
+        
+        // Tạo  đường biên màu vàng cho jpanel_title
         Border jpanel_title_border = BorderFactory.createMatteBorder(0, 1, 1, 1, Color.yellow);
-        // set the border to the jPanel_title
+        
+        // gán border cho JPanel_title
         jPanel_title.setBorder(jpanel_title_border);
         
-        // create an orange border for the global panel
+        
+        // Tạo biên cam cho panel trên đầu
         Border glob_panel_border = BorderFactory.createMatteBorder(1, 1, 1, 1, Color.orange);
         jPanel1.setBorder(glob_panel_border);
         
-        // create a black border for the close & minimize jlables
+        
+        // Tạo border màu đen cho 2 label minimize và close
         Border label_border = BorderFactory.createMatteBorder(1, 1, 1, 1, Color.black);
         jLabel_minimize.setBorder(label_border);
         jLabel_close.setBorder(label_border);

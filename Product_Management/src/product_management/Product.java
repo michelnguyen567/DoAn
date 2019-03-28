@@ -12,14 +12,16 @@ package product_management;
 public class Product {
     
     private int id;
+    private int cateid;
     private String name;
     private float price;
     private String addDate; 
     private byte[] picture;
     
-    public Product(int pid, String pname, float pprice, String pAddDate, byte[] pimg)
+    public Product(int pid, int pcateid, String pname, float pprice, String pAddDate, byte[] pimg)
     {
         this.id = pid;
+        this.cateid = pcateid;
         this.name = pname;
         this.price = pprice;
         this.addDate = pAddDate;
@@ -29,6 +31,11 @@ public class Product {
     public int getId()
     {
         return id;
+    }
+    
+     public int getCateID()
+    {
+        return cateid;
     }
     
     public String getName()

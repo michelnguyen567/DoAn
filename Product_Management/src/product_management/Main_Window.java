@@ -31,6 +31,7 @@ import java.util.ResourceBundle;
 import java.nio.charset.Charset;
 import static java.nio.charset.StandardCharsets.ISO_8859_1;
 import static java.nio.charset.StandardCharsets.UTF_8;
+import java.util.HashMap;
 /**
  *
  * @author kazuto
@@ -42,9 +43,12 @@ public class Main_Window extends javax.swing.JFrame {
      */
     public Main_Window() {
         initComponents();
-        // center form
+        // Khởi tạo form giữa màn hình
         this.setLocationRelativeTo(null);
+        // Mở khóa button
         setButton(true);
+        // Show dữ liệu lên JTable
+        ShowLoaiSP();
         Show_Products_In_JTable();
     }
     
@@ -68,9 +72,9 @@ public class Main_Window extends javax.swing.JFrame {
     public boolean checkInputs()
     {
         if(
-              txt_name.getText() == null
-           || txt_price.getText() == null
-           || txt_AddDate.getDate() == null
+              txt_name.getText().equals("")
+           || txt_price.getText().equals("")
+           || txt_AddDate.getDate().equals("")
           ){
             return false;
         }
@@ -103,6 +107,48 @@ public class Main_Window extends javax.swing.JFrame {
         
     }
     
+    //Truy vấn các dòng dl table category theo cateid
+//    public void ShowLoaiSP()
+//    {
+//        Connection con = getConnection();
+//        String query = "SELECT * FROM category";
+//            
+//        Statement st;
+//        try {
+//            st = con.createStatement();
+//            ResultSet rs = st.executeQuery(query);
+//            while(rs.next()){
+//                cboLoaiSP.addItem(rs.getString("cateid"));
+//            }
+//        } catch (SQLException ex) {
+//            Logger.getLogger(Main_Window.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//        
+//    }
+    
+    public HashMap<String,String> list = new HashMap<>();
+    public void ShowLoaiSP()
+    {
+        Connection con = My_CNX.getConnection();
+        String query = "SELECT * FROM category";
+            
+        Statement st;
+        
+        try {
+            st = con.createStatement();
+            ResultSet rs = st.executeQuery(query);
+        //    list.put("a","a");
+            while(rs.next()){
+                list.put(rs.getString("name"),rs.getString("cateid"));
+                cboLoaiSP.addItem(rs.getString("name"));
+                //cboLoaiSP.addItem(rs.getString("cateid"));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Main_Window.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
+    
     //Hiển thị dữ liệu lên JTable
     // 1 -  Đổ Data vào mảng Product
     public ArrayList<Product> getProductList()
@@ -122,7 +168,7 @@ public class Main_Window extends javax.swing.JFrame {
             
             while(rs.next())
             {
-                product = new Product(rs.getInt("id"),rs.getString("name"),Float.parseFloat(rs.getString("price")),rs.getString("add_date"),rs.getBytes("image"));
+                product = new Product(rs.getInt("id"),rs.getInt("cateid"),rs.getString("name"),Float.parseFloat(rs.getString("price")),rs.getString("add_date"),rs.getBytes("image"));
                 productList.add(product);
             }
             
@@ -192,8 +238,10 @@ public class Main_Window extends javax.swing.JFrame {
     public void ShowItem(int index)
     {
             txt_id.setText(Integer.toString(getProductList().get(index).getId()));
+            cboLoaiSP.setSelectedItem(getProductList().get(index).getCateID());
             txt_name.setText(getProductList().get(index).getName());
             txt_price.setText(Float.toString(getProductList().get(index).getPrice()));
+            
             
         try {
            Date addDate = null;
@@ -206,6 +254,11 @@ public class Main_Window extends javax.swing.JFrame {
         lbl_image.setIcon(ResizeImage(null, getProductList().get(index).getImage()));
     }
     
+    
+    
+    
+    
+    //Truy vấn dữ liệu trong table Product theo cateid
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -239,9 +292,13 @@ public class Main_Window extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         BtnMenu = new javax.swing.JButton();
+        Btn_showProducts = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
+        cboLoaiSP = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 204));
+        setResizable(false);
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel1.setText("ID:");
@@ -357,12 +414,21 @@ public class Main_Window extends javax.swing.JFrame {
         jPanel1.setForeground(new java.awt.Color(102, 102, 102));
 
         jLabel6.setFont(new java.awt.Font("Times New Roman", 3, 36)); // NOI18N
-        jLabel6.setText("Danh sách thú cưng");
+        jLabel6.setText("Quản lý thú cưng");
 
-        BtnMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/menu.png"))); // NOI18N
+        BtnMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/house.png"))); // NOI18N
+        BtnMenu.setToolTipText("Về trang chủ");
         BtnMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnMenuActionPerformed(evt);
+            }
+        });
+
+        Btn_showProducts.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/eye.png"))); // NOI18N
+        Btn_showProducts.setToolTipText("Xem danh sách thú cưng theo loài");
+        Btn_showProducts.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_showProductsActionPerformed(evt);
             }
         });
 
@@ -373,19 +439,30 @@ public class Main_Window extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel6)
-                .addGap(292, 292, 292)
-                .addComponent(BtnMenu))
+                .addGap(228, 228, 228)
+                .addComponent(BtnMenu)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(Btn_showProducts))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(jLabel6)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addComponent(jLabel6))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(BtnMenu)
+                            .addComponent(Btn_showProducts))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(BtnMenu)
-                .addGap(0, 0, Short.MAX_VALUE))
         );
+
+        jLabel7.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jLabel7.setText("Loài:");
+
+        cboLoaiSP.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -408,7 +485,8 @@ public class Main_Window extends javax.swing.JFrame {
                     .addComponent(jLabel2)
                     .addComponent(jLabel5)
                     .addComponent(jLabel3)
-                    .addComponent(jLabel4))
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel7))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -418,8 +496,9 @@ public class Main_Window extends javax.swing.JFrame {
                             .addComponent(txt_name, javax.swing.GroupLayout.DEFAULT_SIZE, 207, Short.MAX_VALUE)
                             .addComponent(txt_price, javax.swing.GroupLayout.DEFAULT_SIZE, 207, Short.MAX_VALUE)
                             .addComponent(txt_AddDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lbl_image, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 21, Short.MAX_VALUE)
+                            .addComponent(lbl_image, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(cboLoaiSP, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 619, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(414, 414, 414)
@@ -446,6 +525,10 @@ public class Main_Window extends javax.swing.JFrame {
                             .addComponent(jLabel2)
                             .addComponent(txt_name, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(cboLoaiSP))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel3)
                             .addComponent(txt_price, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -453,16 +536,13 @@ public class Main_Window extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel4)
                             .addComponent(txt_AddDate, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(38, 38, 38)
-                                .addComponent(jLabel5))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addComponent(lbl_image, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel5)
+                            .addComponent(lbl_image, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(Btn_Choose_Image, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 469, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane1))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -476,8 +556,8 @@ public class Main_Window extends javax.swing.JFrame {
                             .addComponent(Btn_Update, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(Btn_Delete, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(Btn_Save, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(BtnRefresh, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(19, Short.MAX_VALUE))
+                            .addComponent(BtnRefresh, javax.swing.GroupLayout.DEFAULT_SIZE, 53, Short.MAX_VALUE))))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
         pack();
@@ -533,19 +613,20 @@ public class Main_Window extends javax.swing.JFrame {
             if(ImgPath == null)
             {
                 try {
-                    UpdateQuery = "UPDATE products SET name = ?, price = ?"
+                    UpdateQuery = "UPDATE products SET cateid = ?, name = ?, price = ?"
                             + ", add_date = ? WHERE id = ?";
                     ps = con.prepareStatement(UpdateQuery);
                    
-                    ps.setString(1, txt_name.getText());
-                    ps.setString(2, txt_price.getText());
+                    ps.setString(1, list.get(cboLoaiSP.getSelectedItem().toString()));
+                    ps.setString(2, txt_name.getText());
+                    ps.setString(3, txt_price.getText());
                    
                     SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
                     String addDate = dateFormat.format(txt_AddDate.getDate());
                    
-                    ps.setString(3, addDate);
+                    ps.setString(4, addDate);
                    
-                    ps.setInt(4, Integer.parseInt(txt_id.getText()));
+                    ps.setInt(5, Integer.parseInt(txt_id.getText()));
                    
                     ps.executeUpdate();
                     Show_Products_In_JTable();
@@ -561,22 +642,23 @@ public class Main_Window extends javax.swing.JFrame {
                 try{
                 InputStream img = new FileInputStream(new File(ImgPath));
                
-                 UpdateQuery = "UPDATE products SET name = ?, price = ?"
+                 UpdateQuery = "UPDATE products SET cateid = ?, name = ?, price = ?"
                             + ", add_date = ?, image = ? WHERE id = ?";
                
                   ps = con.prepareStatement(UpdateQuery);
                    
-                    ps.setString(1, txt_name.getText());
-                    ps.setString(2, txt_price.getText());
+                     ps.setString(1, list.get(cboLoaiSP.getSelectedItem().toString()));
+                    ps.setString(2, txt_name.getText());
+                    ps.setString(3, txt_price.getText());
                    
                     SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
                     String addDate = dateFormat.format(txt_AddDate.getDate());
                    
-                    ps.setString(3, addDate);
+                    ps.setString(4, addDate);
                    
-                    ps.setBlob(4, img);
+                    ps.setBlob(5, img);
                    
-                    ps.setInt(5, Integer.parseInt(txt_id.getText()));
+                    ps.setInt(6, Integer.parseInt(txt_id.getText()));
                    
                     ps.executeUpdate();
                     Show_Products_In_JTable();
@@ -593,7 +675,7 @@ public class Main_Window extends javax.swing.JFrame {
     }//GEN-LAST:event_Btn_UpdateActionPerformed
  
     
-    // Button Delete The Data From MySQL Database   
+    // Xóa dữ liệu từ Database
     private void Btn_DeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_DeleteActionPerformed
         // TODO add your handling code here:
         String ten = txt_name.getText();
@@ -622,9 +704,8 @@ public class Main_Window extends javax.swing.JFrame {
     }//GEN-LAST:event_Btn_DeleteActionPerformed
 
     
-    // JTable Mouse Clicked
-    // Display The Selected Row Data Into JTextFields
-    // And The Image Into JLabel
+    
+    // Click chuột vào JTable để show dữ liệu lên JTextFields và Hình ảnh vào JLabel
     private void JTable_ProductsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTable_ProductsMouseClicked
         // TODO add your handling code here:
         setButton(true);
@@ -632,7 +713,7 @@ public class Main_Window extends javax.swing.JFrame {
         ShowItem(index);
     }//GEN-LAST:event_JTable_ProductsMouseClicked
 
-     // Button First Show The First Record
+    // Button trỏ về dữ liệu đầu tiên
     private void Btn_FirstActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_FirstActionPerformed
         // TODO add your handling code here:
          pos = 0;
@@ -640,7 +721,7 @@ public class Main_Window extends javax.swing.JFrame {
     }//GEN-LAST:event_Btn_FirstActionPerformed
 
     
-    // Button Last Show The Last Record
+    // Button trỏ về dữ liệu cuối cùng
     private void Btn_LastActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_LastActionPerformed
         // TODO add your handling code here:
         pos = getProductList().size()-1;
@@ -674,17 +755,19 @@ public class Main_Window extends javax.swing.JFrame {
             try {
                 Connection con = getConnection();
 //                String query = "INSERT INTO products(name,price,add_date,image) values(N'"+ten+"','"+gia+"','"+addDate+"','"+img+"')" ;
-                PreparedStatement ps = con.prepareStatement("INSERT INTO products(name,price,add_date,image)" + " values(?,?,?,?) ");
+                PreparedStatement ps = con.prepareStatement("INSERT INTO products(cateid,name,price,add_date,image)" + " values(?,?,?,?,?) ");
                 //PreparedStatement ps = con.prepareStatement(query);
-                ps.setString(1, txt_name.getText());
-                ps.setString(2, txt_price.getText());
+//                ps.setString(1, cboLoaiSP.getSelectedItem().toString());
+                ps.setString(1, list.get(cboLoaiSP.getSelectedItem().toString()));
+                ps.setString(2, txt_name.getText());
+                ps.setString(3, txt_price.getText());
                
                 SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
                 String addDate = dateFormat.format(txt_AddDate.getDate());
-                ps.setString(3, addDate);
+                ps.setString(4, addDate);
                
                 InputStream img = new FileInputStream(new File(ImgPath));
-                ps.setBlob(4, img);
+                ps.setBlob(5, img);
                 ps.executeUpdate();
                 setNull();
                 setButton(true);
@@ -698,11 +781,22 @@ public class Main_Window extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Dữ liệu còn thiếu, vui lòng nhập thêm");
         }
        
-        // only for test
+        // test
+        System.out.println("Cate => "+cboLoaiSP.getSelectedItem().toString());
         System.out.println("Name => "+txt_name.getText());
         System.out.println("Price => "+txt_price.getText());
         System.out.println("Image => "+ImgPath);
     }//GEN-LAST:event_Btn_SaveActionPerformed
+
+    private void Btn_showProductsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_showProductsActionPerformed
+        // TODO add your handling code here:
+        ShowProducts form = new ShowProducts();
+        form.setVisible(true);
+        form.pack();
+        form.setLocationRelativeTo(null);
+        // Đóng form hiện tại (Main_Window) mở form Menu (Menu_Form)
+        this.dispose();
+    }//GEN-LAST:event_Btn_showProductsActionPerformed
                                        
                                    
                                
@@ -751,13 +845,16 @@ public class Main_Window extends javax.swing.JFrame {
     private javax.swing.JButton Btn_Last;
     private javax.swing.JButton Btn_Save;
     private javax.swing.JButton Btn_Update;
+    private javax.swing.JButton Btn_showProducts;
     private javax.swing.JTable JTable_Products;
+    private javax.swing.JComboBox<String> cboLoaiSP;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lbl_image;

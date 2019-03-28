@@ -12,7 +12,7 @@ import javax.swing.JLabel;
 
 /**
  *
- * @author 1BestCsharp
+ * @author 
  */
 public class Menu_Form extends javax.swing.JFrame {
 
@@ -38,9 +38,13 @@ public class Menu_Form extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         btn_mainwindow = new javax.swing.JButton();
-        btn_mainwindow1 = new javax.swing.JButton();
+        btn_shop = new javax.swing.JButton();
+        btn_cate = new javax.swing.JButton();
+        btn_logout = new javax.swing.JButton();
+        btn_showproducts = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
 
@@ -55,7 +59,7 @@ public class Menu_Form extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(142, 142, 142)
+                .addGap(89, 89, 89)
                 .addComponent(jLabel1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -68,17 +72,53 @@ public class Menu_Form extends javax.swing.JFrame {
         );
 
         btn_mainwindow.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
-        btn_mainwindow.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/product.png"))); // NOI18N
-        btn_mainwindow.setText("Quản lý sản phẩm");
+        btn_mainwindow.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/dog.png"))); // NOI18N
+        btn_mainwindow.setText("Thú cưng");
+        btn_mainwindow.setToolTipText("Quản lý sản phẩm");
         btn_mainwindow.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_mainwindowActionPerformed(evt);
             }
         });
 
-        btn_mainwindow1.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
-        btn_mainwindow1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/boy.png"))); // NOI18N
-        btn_mainwindow1.setText("Thông tin người dùng");
+        btn_shop.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        btn_shop.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/store.png"))); // NOI18N
+        btn_shop.setText("Shop");
+        btn_shop.setToolTipText("Quản lý Shop");
+        btn_shop.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_shopActionPerformed(evt);
+            }
+        });
+
+        btn_cate.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        btn_cate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/list.png"))); // NOI18N
+        btn_cate.setText("Giống loài");
+        btn_cate.setToolTipText("Quản lý giống loài");
+        btn_cate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_cateActionPerformed(evt);
+            }
+        });
+
+        btn_logout.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        btn_logout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/login.png"))); // NOI18N
+        btn_logout.setToolTipText("Đăng xuất");
+        btn_logout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_logoutActionPerformed(evt);
+            }
+        });
+
+        btn_showproducts.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        btn_showproducts.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/eye.png"))); // NOI18N
+        btn_showproducts.setText("Xem theo loại");
+        btn_showproducts.setToolTipText("Xem thú cưng theo loại");
+        btn_showproducts.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_showproductsActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -87,20 +127,33 @@ public class Menu_Form extends javax.swing.JFrame {
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(btn_mainwindow)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btn_mainwindow1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btn_logout)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(btn_mainwindow, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btn_showproducts, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btn_cate, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btn_shop, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(33, 33, 33)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_mainwindow)
-                    .addComponent(btn_mainwindow1))
-                .addContainerGap(396, Short.MAX_VALUE))
+                    .addComponent(btn_shop))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn_cate)
+                    .addComponent(btn_showproducts))
+                .addGap(53, 53, 53)
+                .addComponent(btn_logout)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -123,9 +176,49 @@ public class Menu_Form extends javax.swing.JFrame {
                 form.setVisible(true);
                 form.pack();
                 form.setLocationRelativeTo(null);
-                // close the current form(login form)
+                // Đóng form Menu mở form Main_Window
                 this.dispose();
     }//GEN-LAST:event_btn_mainwindowActionPerformed
+
+    private void btn_cateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cateActionPerformed
+        // TODO add your handling code here:
+        Category_Form form = new Category_Form();
+        form.setVisible(true);
+        form.pack();
+        form.setLocationRelativeTo(null);
+        // Đóng form Menu mở form Main_Window
+        this.dispose();
+    }//GEN-LAST:event_btn_cateActionPerformed
+
+    private void btn_shopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_shopActionPerformed
+        // TODO add your handling code here:
+        Shop_Form form = new Shop_Form();
+        form.setVisible(true);
+        form.pack();
+        form.setLocationRelativeTo(null);
+        //Đóng form Menu mở form Đăng nhập
+        this.dispose();
+    }//GEN-LAST:event_btn_shopActionPerformed
+
+    private void btn_logoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_logoutActionPerformed
+        // TODO add your handling code here:
+        Login_Form form = new Login_Form();
+        form.setVisible(true);
+        form.pack();
+        form.setLocationRelativeTo(null);
+        //Đóng form Menu mở form Đăng nhập
+        this.dispose();
+    }//GEN-LAST:event_btn_logoutActionPerformed
+
+    private void btn_showproductsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_showproductsActionPerformed
+        // TODO add your handling code here:
+        ShowProducts form = new ShowProducts();
+        form.setVisible(true);
+        form.pack();
+        form.setLocationRelativeTo(null);
+        //Đóng form Menu mở form Đăng nhập
+        this.dispose();
+    }//GEN-LAST:event_btn_showproductsActionPerformed
 
     /**
      * @param args the command line arguments
@@ -163,8 +256,11 @@ public class Menu_Form extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_cate;
+    private javax.swing.JButton btn_logout;
     private javax.swing.JButton btn_mainwindow;
-    private javax.swing.JButton btn_mainwindow1;
+    private javax.swing.JButton btn_shop;
+    private javax.swing.JButton btn_showproducts;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

@@ -31,6 +31,10 @@ public class User_Infomation extends javax.swing.JFrame {
      */
     public User_Infomation() {
         initComponents();
+        // Hiển thị form ra giữa màn hình
+        this.setLocationRelativeTo(null);
+        // Hiển thị form ra giữa màn hình
+        this.setLocationRelativeTo(null);
         // create a yellow border for the jpanel_title
         // 0 border in the top
         Border jpanel_title_border = BorderFactory.createMatteBorder(0, 1, 1, 1, Color.yellow);
@@ -131,6 +135,7 @@ public class User_Infomation extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 0));
 
