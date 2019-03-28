@@ -20,8 +20,9 @@ public class Menu_Form extends javax.swing.JFrame {
      * Creates new form Menu_Form
      */
     public Menu_Form() {
+        //Khởi tạo form
         initComponents();
-        // center the form
+        // Set vị trí của form ở giữa màn hình
         this.setLocationRelativeTo(null);
     }
     
@@ -172,12 +173,12 @@ public class Menu_Form extends javax.swing.JFrame {
 
     private void btn_mainwindowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_mainwindowActionPerformed
         // TODO add your handling code here:
-         Main_Window form = new Main_Window();
-                form.setVisible(true);
-                form.pack();
-                form.setLocationRelativeTo(null);
-                // Đóng form Menu mở form Main_Window
-                this.dispose();
+        Main_Window form = new Main_Window();
+        form.setVisible(true);
+        form.pack();
+        form.setLocationRelativeTo(null);
+        // Đóng form Menu mở form Main_Window
+        this.dispose();
     }//GEN-LAST:event_btn_mainwindowActionPerformed
 
     private void btn_cateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cateActionPerformed
