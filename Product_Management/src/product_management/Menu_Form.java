@@ -173,11 +173,16 @@ public class Menu_Form extends javax.swing.JFrame {
 
     private void btn_mainwindowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_mainwindowActionPerformed
         // TODO add your handling code here:
+        
+        // tạo form main_window
         Main_Window form = new Main_Window();
+        //Cho form hiện
         form.setVisible(true);
+        //phương thức pack giúp frame có kích thước vừa đủ với nội dung của frame 
         form.pack();
+        //Khởi tạo form tại giữ màn hình
         form.setLocationRelativeTo(null);
-        // Đóng form Menu mở form Main_Window
+        // Đóng form hiện tại
         this.dispose();
     }//GEN-LAST:event_btn_mainwindowActionPerformed
 
@@ -187,7 +192,7 @@ public class Menu_Form extends javax.swing.JFrame {
         form.setVisible(true);
         form.pack();
         form.setLocationRelativeTo(null);
-        // Đóng form Menu mở form Main_Window
+        // Đóng form hiện tại
         this.dispose();
     }//GEN-LAST:event_btn_cateActionPerformed
 
@@ -197,7 +202,7 @@ public class Menu_Form extends javax.swing.JFrame {
         form.setVisible(true);
         form.pack();
         form.setLocationRelativeTo(null);
-        //Đóng form Menu mở form Đăng nhập
+        // Đóng form hiện tại
         this.dispose();
     }//GEN-LAST:event_btn_shopActionPerformed
 
@@ -207,7 +212,7 @@ public class Menu_Form extends javax.swing.JFrame {
         form.setVisible(true);
         form.pack();
         form.setLocationRelativeTo(null);
-        //Đóng form Menu mở form Đăng nhập
+        // Đóng form hiện tại
         this.dispose();
     }//GEN-LAST:event_btn_logoutActionPerformed
 
@@ -217,7 +222,7 @@ public class Menu_Form extends javax.swing.JFrame {
         form.setVisible(true);
         form.pack();
         form.setLocationRelativeTo(null);
-        //Đóng form Menu mở form Đăng nhập
+        // Đóng form hiện tại
         this.dispose();
     }//GEN-LAST:event_btn_showproductsActionPerformed
 

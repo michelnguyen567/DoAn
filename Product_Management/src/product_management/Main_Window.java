@@ -47,8 +47,9 @@ public class Main_Window extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         // Mở khóa button
         setButton(true);
-        // Show dữ liệu lên JTable
+        // Hiện combobox loại sp
         ShowLoaiSP();
+        // Show dữ liệu lên JTable
         Show_Products_In_JTable();
     }
     
@@ -108,24 +109,7 @@ public class Main_Window extends javax.swing.JFrame {
     }
     
     //Truy vấn các dòng dl table category theo cateid
-//    public void ShowLoaiSP()
-//    {
-//        Connection con = getConnection();
-//        String query = "SELECT * FROM category";
-//            
-//        Statement st;
-//        try {
-//            st = con.createStatement();
-//            ResultSet rs = st.executeQuery(query);
-//            while(rs.next()){
-//                cboLoaiSP.addItem(rs.getString("cateid"));
-//            }
-//        } catch (SQLException ex) {
-//            Logger.getLogger(Main_Window.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//        
-//    }
-    
+    //Sử  dụng HashMap để truy xuất được id và value bên trong combobox.
     public HashMap<String,String> list = new HashMap<>();
     public void ShowLoaiSP()
     {
@@ -140,6 +124,7 @@ public class Main_Window extends javax.swing.JFrame {
         //    list.put("a","a");
             while(rs.next()){
                 list.put(rs.getString("name"),rs.getString("cateid"));
+                //Ghi tên loài vào combobox
                 cboLoaiSP.addItem(rs.getString("name"));
                 //cboLoaiSP.addItem(rs.getString("cateid"));
             }
@@ -180,7 +165,6 @@ public class Main_Window extends javax.swing.JFrame {
                 
     }
     //      2 - Đưa dlsp lên JTable
-    
     public void Show_Products_In_JTable()
     {
         ArrayList<Product> list = getProductList();
@@ -193,8 +177,6 @@ public class Main_Window extends javax.swing.JFrame {
         {
             row[0] = list.get(i).getId();
             row[1] = list.get(i).getName();
-//            byte[] ptext = list.get(i).getName().getBytes(ISO_8859_1); 
-//            row[1] = new String(ptext, UTF_8); 
             row[2] = list.get(i).getPrice();
             row[3] = list.get(i).getAddDate();
             
@@ -254,11 +236,6 @@ public class Main_Window extends javax.swing.JFrame {
         lbl_image.setIcon(ResizeImage(null, getProductList().get(index).getImage()));
     }
     
-    
-    
-    
-    
-    //Truy vấn dữ liệu trong table Product theo cateid
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -740,11 +717,15 @@ public class Main_Window extends javax.swing.JFrame {
 
     private void BtnRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnRefreshActionPerformed
         // TODO add your handling code here:
+        // tạo form main_window
         Main_Window form = new Main_Window();
+        //Cho form hiện
         form.setVisible(true);
+        //phương thức pack giúp frame có kích thước vừa đủ với nội dung của frame 
         form.pack();
+        //Khởi tạo form tại giữ màn hình
         form.setLocationRelativeTo(null);
-        // Đóng form hiện tại (Main_Window) mở form Menu (Menu_Form)
+        // Đóng form hiện tại
         this.dispose();
     }//GEN-LAST:event_BtnRefreshActionPerformed
 

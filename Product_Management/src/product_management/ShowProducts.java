@@ -31,8 +31,14 @@ public class ShowProducts extends javax.swing.JFrame {
      */
     public ShowProducts() {
         initComponents();
+        // Khởi tạo form giữa màn hình
+        this.setLocationRelativeTo(null);
+        // hiển thị dữ liệu lên combobox
         ShowLoaiSP();
     }
+    
+    //Truy vấn các dòng dl table category theo cateid
+    //Sử  dụng HashMap để truy xuất được id và value bên trong combobox.
     public HashMap<String,String> list = new HashMap<>();
     public void ShowLoaiSP()
     {
@@ -56,6 +62,8 @@ public class ShowProducts extends javax.swing.JFrame {
         
     }
     
+    //Hiển thị dữ liệu lên JTable
+    // 1 -  Đổ Data vào mảng Product
     public ArrayList<Product> getProductList()
     {
             ArrayList<Product> productList  = new ArrayList<Product>();
@@ -87,6 +95,7 @@ public class ShowProducts extends javax.swing.JFrame {
                 
     }
     
+    //      2 - Đưa dlsp lên JTable
      public void Show_Products_In_JTable(int cateid)
     {
         ArrayList<Product> list = getProductList();
@@ -106,6 +115,7 @@ public class ShowProducts extends javax.swing.JFrame {
         }
     
     }
+    //Hàm thay đổi kích thước ảnh cho vừa với JLabel
      public ImageIcon ResizeImage(String imagePath, byte[] pic)
     {
         ImageIcon myImage = null;
@@ -123,6 +133,8 @@ public class ShowProducts extends javax.swing.JFrame {
         return image;
         
     }
+     
+     // hiện dữ liệu trên input
      public void ShowItem(int index){
           lbl_image.setIcon(ResizeImage(null, getProductList().get(index).getImage()));
      }
