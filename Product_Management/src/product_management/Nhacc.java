@@ -12,14 +12,16 @@ package product_management;
 public class Nhacc {
      private int idncc;
     private String namencc;
-
+    private String diachincc;
+    private String sdtncc;
     private byte[] imagencc;
     
-    public Nhacc(int zidncc, String znamencc, byte[] zimgncc)
+    public Nhacc(int zidncc, String znamencc,String zdiachincc,String zsdtncc, byte[] zimgncc)
     {
         this.idncc = zidncc;
         this.namencc = znamencc;
-        
+        this.diachincc=zdiachincc;
+        this.sdtncc=zsdtncc;
         this.imagencc = zimgncc;
     }
     
@@ -32,8 +34,14 @@ public class Nhacc {
     {
         return namencc;
     }
-    
-  
+     public String getDiachincc()
+    {
+        return diachincc;
+    }
+   public String getSdtncc()
+    {
+        return sdtncc;
+    }
    
     public byte[] getImagencc()
     {

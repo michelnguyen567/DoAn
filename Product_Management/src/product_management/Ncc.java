@@ -59,7 +59,7 @@ String ImgPathncc = null;
     private void initComponents() {
 
         txt_idncc = new javax.swing.JTextField();
-        txt_namencc = new javax.swing.JTextField();
+        txt_diachincc = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         BtnMenu = new javax.swing.JButton();
@@ -76,13 +76,17 @@ String ImgPathncc = null;
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        txt_namencc = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        txt_sdtncc = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         txt_idncc.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
         txt_idncc.setEnabled(false);
 
-        txt_namencc.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
+        txt_diachincc.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
 
         jPanel1.setBackground(new java.awt.Color(153, 153, 153));
         jPanel1.setForeground(new java.awt.Color(102, 102, 102));
@@ -123,7 +127,7 @@ String ImgPathncc = null;
 
             },
             new String [] {
-                "ID", "Tên"
+                "ID", "Tên", "Địa chỉ", "SĐT"
             }
         ));
         JTable_ncc.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -195,6 +199,14 @@ String ImgPathncc = null;
 
         jLabel4.setText("Hình");
 
+        txt_namencc.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
+
+        jLabel5.setText("Địa chỉ");
+
+        txt_sdtncc.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
+
+        jLabel7.setText("SĐT");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -202,16 +214,27 @@ String ImgPathncc = null;
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(61, 61, 61)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel3))
-                        .addGap(23, 23, 23)
-                        .addComponent(lbl_imagencc, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(25, 25, 25)
-                        .addComponent(jLabel2)))
-                .addContainerGap(677, Short.MAX_VALUE))
+                        .addComponent(jLabel2)
+                        .addGap(57, 57, 57)
+                        .addComponent(txt_idncc, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel7))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel4)
+                                .addGap(48, 48, 48)
+                                .addComponent(lbl_imagencc, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 5, Short.MAX_VALUE))
+                            .addComponent(txt_diachincc)
+                            .addComponent(txt_namencc)
+                            .addComponent(txt_sdtncc, javax.swing.GroupLayout.Alignment.TRAILING))))
+                .addGap(645, 645, 645))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addContainerGap()
@@ -229,10 +252,7 @@ String ImgPathncc = null;
                             .addGap(122, 122, 122)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(Btn_Choose_Imagencc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(txt_idncc)
-                                        .addComponent(txt_namencc, javax.swing.GroupLayout.DEFAULT_SIZE, 207, Short.MAX_VALUE))
+                                    .addComponent(Btn_Choose_Imagencc)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 619, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(layout.createSequentialGroup()
@@ -250,29 +270,34 @@ String ImgPathncc = null;
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(109, 109, 109)
-                .addComponent(jLabel2)
-                .addGap(43, 43, 43)
-                .addComponent(jLabel3)
-                .addGap(46, 46, 46)
+                .addGap(94, 94, 94)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(txt_idncc, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txt_namencc, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txt_diachincc, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txt_sdtncc, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7))
+                .addGap(6, 6, 6)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lbl_imagencc, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(13, 13, 13)
-                        .addComponent(jLabel4)))
-                .addContainerGap(215, Short.MAX_VALUE))
+                    .addComponent(jLabel4))
+                .addContainerGap(132, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addContainerGap()
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(txt_idncc, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(txt_namencc, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(Btn_Choose_Imagencc, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(Btn_Choose_Imagencc, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 469, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGap(18, 18, 18)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -331,7 +356,7 @@ String ImgPathncc = null;
             
             while(rs.next())
             {
-                nhacc = new Nhacc(rs.getInt("idNcc"),rs.getString("nameNcc"),rs.getBytes("imageNcc"));
+                nhacc = new Nhacc(rs.getInt("idNcc"),rs.getString("nameNcc"),rs.getString("diachiNcc"),rs.getString("sdtNcc"),rs.getBytes("imageNcc"));
                 nccList.add(nhacc);
             }
             
@@ -349,14 +374,15 @@ String ImgPathncc = null;
         // clear jtable content
        
         model.setRowCount(0);
-        Object[] row = new Object[2];
+        Object[] row = new Object[4];
         for(int i = 0; i < list.size(); i++)
         {
             row[0] = list.get(i).getIdncc();
             row[1] = list.get(i).getNamencc();
 //            byte[] ptext = list.get(i).getName().getBytes(ISO_8859_1); 
 //            row[1] = new String(ptext, UTF_8); 
-           
+           row[2] = list.get(i).getDiachincc();
+           row[3] = list.get(i).getSdtncc();
             
             model.addRow(row);
         }
@@ -382,8 +408,8 @@ String ImgPathncc = null;
     {
             txt_idncc.setText(Integer.toString((int) getnccList().get(index).getIdncc()));
             txt_namencc.setText((String) getnccList().get(index).getNamencc());
-           
-        
+             txt_diachincc.setText((String) getnccList().get(index).getDiachincc());
+             txt_sdtncc.setText((String) getnccList().get(index).getSdtncc());
         
         lbl_imagencc.setIcon(ResizeImage(null, getnccList().get(index).getImagencc()));
     }
@@ -431,8 +457,8 @@ String ImgPathncc = null;
     {
         //Khóa hoặc mở khóa cho các JTextField
         this.txt_namencc.setEnabled(!a);
-       
-        
+       this.txt_diachincc.setEnabled(!a);
+        this.txt_sdtncc.setEnabled(!a);
         this.Btn_Choose_Imagencc.setEnabled(!a);
     }
   
@@ -441,7 +467,8 @@ String ImgPathncc = null;
     {
         this.txt_idncc.setText(null);
         this.txt_namencc.setText(null);
-       
+        this.txt_diachincc.setText(null);
+       this.txt_sdtncc.setText(null);
         this.lbl_imagencc.setIcon(null);
         this.txt_namencc.requestFocus();
     }
@@ -452,17 +479,18 @@ String ImgPathncc = null;
         {
             try {
                  Connection con = getConnection();
-                PreparedStatement ps = con.prepareStatement("INSERT INTO ncc(nameNcc,imageNcc)"
-                        + "values(?,?) ");
+                PreparedStatement ps = con.prepareStatement("INSERT INTO ncc(nameNcc,diachiNcc,sdtNcc,imageNcc)"
+                        + "values(?,?,?,?) ");
                 ps.setString(1, txt_namencc.getText());
-            
+                 ps.setString(2, txt_diachincc.getText());
+                ps.setString(3, txt_sdtncc.getText());
                
                // SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
                 
              
                
                 InputStream img = new FileInputStream(new File(ImgPathncc));
-                ps.setBlob(2, img);
+                ps.setBlob(4, img);
                 ps.executeUpdate();
                 Show_Ncc_In_JTable();
                
@@ -478,7 +506,8 @@ public boolean checkInputs()
     {
         if(
               txt_namencc.getText() == null
-          
+           || txt_diachincc.getText() == null
+           || txt_sdtncc.getText() == null
           )
         {
             return false;
@@ -497,18 +526,19 @@ public boolean checkInputs()
             if(ImgPathncc == null)
             {
                 try {
-                    UpdateQuery = "UPDATE ncc SET nameNcc = ?  WHERE idNcc = ?";
+                    UpdateQuery = "UPDATE ncc SET nameNcc = ?,diachiNcc= ?, sdtNcc=? WHERE idNcc = ?";
                     ps = con.prepareStatement(UpdateQuery);
 
                     ps.setString(1, txt_namencc.getText());
-                    
+                     ps.setString(2, txt_diachincc.getText());
+                      ps.setString(3, txt_sdtncc.getText());
 
                     SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
                    
 
                    
 
-                    ps.setInt(2, Integer.parseInt(txt_idncc.getText()));
+                    ps.setInt(4, Integer.parseInt(txt_idncc.getText()));
 
                     ps.executeUpdate();
                     Show_Ncc_In_JTable();
@@ -524,20 +554,20 @@ public boolean checkInputs()
                 try{
                     InputStream img = new FileInputStream(new File(ImgPathncc));
 
-                    UpdateQuery = "UPDATE ncc SET nameNcc = ?, imageNcc = ? WHERE idNcc = ?";
+                    UpdateQuery = "UPDATE ncc SET nameNcc = ?, diachiNcc = ?, sdtNcc = ?, imageNcc = ? WHERE idNcc = ?";
 
                     ps = con.prepareStatement(UpdateQuery);
 
                     ps.setString(1, txt_namencc.getText());
-                  
-
+                   ps.setString(2, txt_diachincc.getText());
+                    ps.setString(3, txt_sdtncc.getText());
                     SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
                    
                   
 
-                    ps.setBlob(2, img);
+                    ps.setBlob(4, img);
 
-                    ps.setInt(3, Integer.parseInt(txt_idncc.getText()));
+                    ps.setInt(5, Integer.parseInt(txt_idncc.getText()));
 
                     ps.executeUpdate();
                     Show_Ncc_In_JTable();
@@ -587,16 +617,20 @@ public boolean checkInputs()
             try {
                 Connection con = getConnection();
                 //                String query = "INSERT INTO products(name,price,add_date,image) values(N'"+ten+"','"+gia+"','"+addDate+"','"+img+"')" ;
-                PreparedStatement ps = con.prepareStatement("INSERT INTO ncc(name,image)" + " values(?,?) ");
+                PreparedStatement ps = con.prepareStatement("INSERT INTO ncc(nameNcc,diachiNcc,sdtNcc,imageNcc)" + " values(?,?,?,?) ");
                 //PreparedStatement ps = con.prepareStatement(query);
+               
                 ps.setString(1, txt_namencc.getText());
+                 ps.setString(2, txt_diachincc.getText());
+                ps.setString(3, txt_sdtncc.getText());
+               
               
 
                 SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
              
 
                 InputStream img = new FileInputStream(new File(ImgPathncc));
-                ps.setBlob(2, img);
+                ps.setBlob(4, img);
                 ps.executeUpdate();
                 setNull();
                 setButton(true);
@@ -612,7 +646,8 @@ public boolean checkInputs()
 
         // only for test
         System.out.println("Name => "+txt_namencc.getText());
-       ;
+        System.out.println("Name => "+txt_diachincc.getText());
+         System.out.println("Name => "+txt_sdtncc.getText());
         System.out.println("Image => "+ImgPathncc);
     }//GEN-LAST:event_Btn_SavenccActionPerformed
 
@@ -675,12 +710,16 @@ public boolean checkInputs()
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lbl_imagencc;
+    private javax.swing.JTextField txt_diachincc;
     private javax.swing.JTextField txt_idncc;
     private javax.swing.JTextField txt_namencc;
+    private javax.swing.JTextField txt_sdtncc;
     // End of variables declaration//GEN-END:variables
 
     
